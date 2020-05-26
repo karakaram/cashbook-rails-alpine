@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_041522) do
+ActiveRecord::Schema.define(version: 2020_05_26_051502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,20 @@ ActiveRecord::Schema.define(version: 2020_05_26_041522) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "incomes", force: :cascade do |t|
+    t.bigint "admin_user_id", null: false
+    t.bigint "income_type_id", null: false
+    t.string "name"
+    t.decimal "price", precision: 9
+    t.date "earned_on"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["admin_user_id"], name: "index_incomes_on_admin_user_id"
+    t.index ["income_type_id"], name: "index_incomes_on_income_type_id"
+  end
+
   add_foreign_key "expenses", "admin_users"
   add_foreign_key "expenses", "expense_types"
+  add_foreign_key "incomes", "admin_users"
+  add_foreign_key "incomes", "income_types"
 end
