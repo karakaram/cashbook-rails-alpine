@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  expense_type: one
+  price: 9.99
+  paid_on: 2020-05-26
+
+two:
+  expense_type: two
+  price: 9.99
+  paid_on: 2020-05-26

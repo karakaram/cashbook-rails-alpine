@@ -18,6 +18,7 @@ docker-compose exec app rails generate model IncomeType name:string order:intege
 docker-compose exec app rails generate model Expense admin_user:references expense_type:references name:string 'price:decimal{9,0}' paid_on:date
 docker-compose exec app rails generate model Income admin_user:references income_type:references name:string 'price:decimal{9,0}' earned_on:date
 docker-compose exec app rails generate model RegularExpense admin_user:references expense_type:references name:string 'price:decimal{9,0}'
+docker-compose exec app rails generate model MonthlyExpense expense_type:references 'price:decimal{9,0}' paid_on:date
 ```
 
 Migrate Database
@@ -34,4 +35,5 @@ docker-compose exec app rails generate active_admin:resource IncomeType
 docker-compose exec app rails generate active_admin:resource Expense
 docker-compose exec app rails generate active_admin:resource Income
 docker-compose exec app rails generate active_admin:resource RegularExpense
+docker-compose exec app rails generate active_admin:resource MonthlyExpense
 ```
