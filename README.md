@@ -14,6 +14,7 @@ Create Model
 
 ```
 docker-compose exec app rails generate model ExpenseType name:string order:integer
+docker-compose exec app rails generate model IncomeType name:string order:integer
 ```
 
 Migrate Database
@@ -26,4 +27,5 @@ Create Admin
 
 ```
 docker-compose exec app rails generate active_admin:resource ExpenseType
+docker-compose exec app rails generate active_admin:resource IncomeType
 ```
